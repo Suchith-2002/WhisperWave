@@ -1,0 +1,117 @@
+/* Reset some default styles for consistency across browsers */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* Style the main container to center content and set max width */
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Headings styles */
+h1 {
+    font-size: 32px;
+    color: #4A4A4A;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h2 {
+    font-size: 24px;
+    color: #4CAF50;
+    margin: 30px 0 10px;
+}
+
+/* Style the file input */
+input[type="file"] {
+    margin-bottom: 20px;
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 400px;
+    cursor: pointer;
+}
+
+/* Button styling */
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Style for the audio player */
+audio {
+    margin: 20px auto;
+    display: block;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Centering the transcription text box */
+#transcriptionText {
+    margin: 20px auto;
+    padding: 15px;
+    width: 100%;
+    max-width: 600px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    overflow: auto;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-height: 300px;
+    text-align: left;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* Style the footer message */
+footer {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: #999;
+}

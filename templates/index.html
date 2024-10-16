@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Transcription App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Add Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Audio Transcription</h1>
+
+        <form id="uploadForm" enctype="multipart/form-data">
+            <input type="file" id="audio_file" name="audio_file" accept=".mp3,.wav">
+            <button type="submit">Upload and Transcribe</button>
+        </form>
+
+        <h2>Uploaded Audio:</h2>
+        <audio id="audioPlayer" controls></audio>
+
+        <h2>Transcription:</h2>
+        <pre id="transcriptionText"></pre>
+
+        <footer>Powered by Flask and Whisper</footer>
+    </div>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var formData = new FormData();
+            var audioFile = document.getElementById('audio_file').files[0];
+            formData.append('audio_file', audioFile);
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert("Error: " + data.error);
+                } else {
+                    // Show transcription result
+                    document.getElementById('transcriptionText').innerText = data.transcription;
+
+                    // Play the uploaded audio
+                    var audioURL = URL.createObjectURL(audioFile);
+                    document.getElementById('audioPlayer').src = audioURL;
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>

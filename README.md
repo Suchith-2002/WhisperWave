@@ -49,7 +49,7 @@ To run this application, you need to have **Python 3.x** and `pip` installed.
 
     ```bash
     pip install Flask pydub
-    pip install git+[https://github.com/openai/whisper.git](https://github.com/openai/whisper.git)
+    pip install openai-whisper
     ```
 
     **Install FFmpeg:**
